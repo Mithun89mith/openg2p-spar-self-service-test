@@ -597,7 +597,7 @@
 					"name": "/selfservide/test_strategy",
 					"item": [
 						{
-							"name": "Test Strategy",
+							"name": "test strategy",
 							"event": [
 								{
 									"listen": "test",
@@ -672,7 +672,7 @@
 					"name": "/selfservice/link",
 					"item": [
 						{
-							"name": "Link with valid details",
+							"name": "link with valid details",
 							"event": [
 								{
 									"listen": "test",
@@ -735,7 +735,7 @@
 							"response": []
 						},
 						{
-							"name": "Link with invalid fa type",
+							"name": "link with invalid fa type",
 							"event": [
 								{
 									"listen": "test",
@@ -789,7 +789,7 @@
 							"response": []
 						},
 						{
-							"name": "Link with invalid strategy id",
+							"name": "link with invalid strategy id",
 							"request": {
 								"auth": {
 									"type": "bearer",
@@ -826,7 +826,7 @@
 							"response": []
 						},
 						{
-							"name": "Link with missing field",
+							"name": "link with missing field",
 							"event": [
 								{
 									"listen": "test",
@@ -881,7 +881,7 @@
 							"response": []
 						},
 						{
-							"name": "Link already mapped id and fa",
+							"name": "link already mapped id and fa",
 							"event": [
 								{
 									"listen": "test",
@@ -1210,9 +1210,47 @@
 						},
 						{
 							"name": "fetch details without mapping id and fa",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"ID doesnt exist please link first\");\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"request": {
-								"method": "GET",
-								"header": []
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/selfservice/resolve",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"selfservice",
+										"resolve"
+									]
+								}
 							},
 							"response": []
 						}
@@ -1222,7 +1260,7 @@
 					"name": "/selfservice/unlink",
 					"item": [
 						{
-							"name": "Unlink",
+							"name": "unlink",
 							"request": {
 								"auth": {
 									"type": "bearer",
@@ -1278,7 +1316,7 @@
 					"name": "/auth/profile",
 					"item": [
 						{
-							"name": "Get Profile with boolean as false",
+							"name": "get profile with boolean as false",
 							"event": [
 								{
 									"listen": "test",
@@ -1340,7 +1378,7 @@
 							"response": []
 						},
 						{
-							"name": "Get profile with boolean as true",
+							"name": "get profile with boolean as true",
 							"request": {
 								"auth": {
 									"type": "bearer",
@@ -1374,7 +1412,7 @@
 							"response": []
 						},
 						{
-							"name": "Get Profile with boolean as empty",
+							"name": "get profile with boolean as empty",
 							"request": {
 								"auth": {
 									"type": "bearer",
@@ -1408,7 +1446,7 @@
 							"response": []
 						},
 						{
-							"name": "Get Profile(Unauthorised))",
+							"name": "get profile(unauthorised))",
 							"event": [
 								{
 									"listen": "test",
@@ -1465,7 +1503,7 @@
 					"name": "/auth/logout",
 					"item": [
 						{
-							"name": "Logout",
+							"name": "logout",
 							"event": [
 								{
 									"listen": "test",
@@ -1517,7 +1555,7 @@
 					"name": "/auth/getLoginProviders",
 					"item": [
 						{
-							"name": "Get Login Providers",
+							"name": "get login providers",
 							"event": [
 								{
 									"listen": "test",
@@ -1566,7 +1604,7 @@
 					"name": "/auth/getLoginProviderRedirect/{id}",
 					"item": [
 						{
-							"name": "Get Login Provider Redirect",
+							"name": "get login provider redirect",
 							"event": [
 								{
 									"listen": "test",
@@ -1618,7 +1656,7 @@
 							"response": []
 						},
 						{
-							"name": "Authentication",
+							"name": "authentication",
 							"event": [
 								{
 									"listen": "test",
