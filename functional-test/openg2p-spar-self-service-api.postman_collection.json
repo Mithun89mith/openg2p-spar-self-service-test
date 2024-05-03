@@ -46,11 +46,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}selfservice/dfsp/getLevels",
+							"raw": "{{baseUrl}}/selfservice/dfsp/getLevels",
 							"host": [
-								"{{baseUrl}}selfservice"
+								"{{baseUrl}}"
 							],
 							"path": [
+								"selfservice",
 								"dfsp",
 								"getLevels"
 							]
@@ -61,6 +62,16 @@
 				{
 					"name": "Get Dfsp Level Values",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [
 							{
@@ -84,11 +95,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}selfservice/dfsp/getLevelValues",
+							"raw": "{{baseUrl}}/selfservice/dfsp/getLevelValues",
 							"host": [
-								"{{baseUrl}}selfservice"
+								"{{baseUrl}}"
 							],
 							"path": [
+								"selfservice",
 								"dfsp",
 								"getLevelValues"
 							]
